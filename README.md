@@ -11,14 +11,14 @@ This command-line tool parses and aggregates data from `commits.txt` and `identi
 
 ## 🚀 Core Features
 
-* [cite_start]**Command-Line Interface:** Accepts input file paths (`identities.txt`, `commits.txt`) via command-line arguments (`sys.argv`) for flexible use[cite: 11].
-* [cite_start]**Identity Consolidation:** Parses `identities.txt` to map multiple committer IDs (e.g., different emails for the same person) to a single, unified developer identity[cite: 3, 12].
+* **Command-Line Interface:** Accepts input file paths (`identities.txt`, `commits.txt`) via command-line arguments (`sys.argv`) for flexible use.
+* **Identity Consolidation:** Parses `identities.txt` to map multiple committer IDs (e.g., different emails for the same person) to a single, unified developer identity.
 * **Complex Data Aggregation:** Builds a nested dictionary data model to track statistics for each developer across three different classification schemes:
-    * [cite_start]**Software Maintenance (SwM)** [cite: 14]
-    * [cite_start]**Software Evolution (SoftEvol)** [cite: 15]
-    * [cite_start]**NFR Labelling (NFL)** [cite: 16]
-* [cite_start]**Interactive Query Menu:** Once loaded, the tool presents an interactive menu for running dynamic analyses without reloading the data[cite: 20].
-* [cite_start]**Data Visualization:** Integrates `matplotlib` to generate bar charts for comparing developer statistics or feature activities[cite: 17, 18].
+    * **Software Maintenance (SwM)**
+    * **Software Evolution (SoftEvol)**
+    * **NFR Labelling (NFL)**
+* **Interactive Query Menu:** Once loaded, the tool presents an interactive menu for running dynamic analyses without reloading the data.
+* **Data Visualization:** Integrates `matplotlib` to generate bar charts for comparing developer statistics or feature activities.
 * **Robust Error Handling:** Includes exception handling for file I/O and user input to ensure a smooth user experience.
 
 ---
@@ -29,32 +29,32 @@ This command-line tool parses and aggregates data from `commits.txt` and `identi
 
 The tool is launched by passing the two data files as command-line arguments.
 
-1.  [cite_start]**Identity Mapping:** It first reads `identities.txt` to create a "master list" of developers[cite: 12].
+1.  **Identity Mapping:** It first reads `identities.txt` to create a "master list" of developers.
 2.  **Commit Parsing:** It then reads `commits.txt` line by line. For each commit, it:
-    * Finds the master identity for the committer ID.
-    * Parses the 13 classification features (e.g., `SwM`, `SoftEvol`, `NFL`).
-    * Aggregates these counts into a large nested dictionary.
+  	 * Finds the master identity for the committer ID.
+  	 * Parses the 13 classification features (e.g., `SwM`, `SoftEvol`, `NFL`).
+  	 * Aggregates these counts into a large nested dictionary.
 
 The final data structure looks similar to this:
 
 ```python
 all_commits = {
-    'Developer_Name_1': {
-        'total_commits': 150,
-        'SwM': { 'feature_1': 20, 'feature_2': 10, ... },
-        'SoftEvol': { 'feature_1': 5, ... },
-        'NFL': { 'feature_1': 30, ... }
-    },
-    'Developer_Name_2': { ... }
+  	 'Developer_Name_1': {
+  	 	 'total_commits': 150,
+  	 	 'SwM': { 'feature_1': 20, 'feature_2': 10, ... },
+  	 	 'SoftEvol': { 'feature_1': 5, ... },
+  	 	 'NFL': { 'feature_1': 30, ... }
+  	 },
+  	 'Developer_Name_2': { ... }
 }
 ```
 
 ### 2. Interactive Analysis
 
 After processing, the user is presented with a menu to:
-* [cite_start]**Compare Schemes:** Generate a bar chart comparing the SwM, SoftEvol, and NFL totals for a *single developer*[cite: 17].
-* [cite_start]**Compare Features:** Generate a bar chart comparing the values of a *single feature* (e.g., `SwM_1`) across *all developers*[cite: 18].
-* [cite_start]**Find Top Contributor:** Print the name of the developer with the maximum number of commits for a *specific feature*[cite: 19].
+* **Compare Schemes:** Generate a bar chart comparing the SwM, SoftEvol, and NFL totals for a *single developer*.
+* **Compare Features:** Generate a bar chart comparing the values of a *single feature* (e.g., `SwM_1`) across *all developers*.
+* **Find Top Contributor:** Print the name of the developer with the maximum number of commits for a *specific feature*.
 
 > **[Image: Screenshot of the CLI menu]**
 >
