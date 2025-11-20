@@ -31,9 +31,9 @@ The tool is launched by passing the two data files as command-line arguments.
 
 1.  **Identity Mapping:** It first reads `identities.txt` to create a "master list" of developers.
 2.  **Commit Parsing:** It then reads `commits.txt` line by line. For each commit, it:
-  	 * Finds the master identity for the committer ID.
-  	 * Parses the 13 classification features (e.g., `SwM`, `SoftEvol`, `NFL`).
-  	 * Aggregates these counts into a large nested dictionary.
+     * Finds the master identity for the committer ID.
+     * Parses the 13 classification features (e.g., `SwM`, `SoftEvol`, `NFL`).
+     * Aggregates these counts into a large nested dictionary.
 
 The final data structure looks similar to this:
 
